@@ -10,3 +10,7 @@ export interface IPlaygroundStepsState{
   enteredValue: string | null,
   success: boolean | null
 }
+export interface IEndGameConditions{
+  SUCCESS_COUNT: number,
+  UNSUCCESS_COUNT: number
+}

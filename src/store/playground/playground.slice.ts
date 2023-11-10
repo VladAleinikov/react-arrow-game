@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IPlaygroundState } from "../../models/platground";
+import { IPlaygroundState } from "../../models/playground";
 import { ARR_ARROW_CODES, MAP_ARROW_CODES } from "../../constants";
 
 const initialState: IPlaygroundState = {
@@ -54,7 +54,8 @@ export const playgroundSlice = createSlice({
           state.totalSuccessful = 0;
         }
       }
-    }
+    },
+    resetStore: (state) =>  initialState
   },
 });
 export const playgroundActions = playgroundSlice.actions;
