@@ -8,13 +8,14 @@ import KeyPressed from "./KeyPressed";
 
 const Playground = () => {
   const { currentStep } = useAppSelector((state) => state.playground);
-  const { setCurrentStep, setSteps } = useActions();
+  const { setCurrentStep, setSteps, setUnsuccess } = useActions();
   const [isTimerActive, setIsTimerActive] = useState<boolean>(false);
   const refreshIntervalId = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (isTimerActive) {
       refreshIntervalId.current = setInterval(() => {
+        setUnsuccess();
         setCurrentStep();
         setSteps();
       }, INTERVAL_TIME);

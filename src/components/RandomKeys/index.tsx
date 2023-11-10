@@ -12,7 +12,7 @@ const RandomKeys = (props: IRandomKeysProps) => {
   return (
     <div>
       {steps.map((step, id) => (
-        <p key={id}>
+        <p key={step.step}>
           {MAP_ARROW_CODES[step.currentValue as keyof IMapArrowCodes]}
         </p>
       ))}
