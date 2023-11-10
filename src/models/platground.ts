@@ -1,3 +1,7 @@
-export interface playgroundState {
-  currentStep: number;
+export interface IPlaygroundState {
+  currentStep: number,
+  steps: IPlaygroundStepsState[]
+}
+export interface IPlaygroundStepsState{
+  currentValue: string
 }
