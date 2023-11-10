@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IPlaygroundState } from "../../models/platground";
 import { ARR_ARROW_CODES, MAP_ARROW_CODES } from "../../constants";
 
@@ -16,8 +16,11 @@ export const playgroundSlice = createSlice({
     },
     setSteps: (state) => {
           const randomKeys = Math.floor(Math.random() * ARR_ARROW_CODES.length);
-          state.steps.push({ currentValue: ARR_ARROW_CODES[randomKeys] });
+          state.steps.push({ currentValue: ARR_ARROW_CODES[randomKeys], enteredValue: null });
     },
+    setEnteredValue: (state, action: PayloadAction<string>) => {
+      state.steps[state.currentStep - 1].enteredValue = action.payload;
+    }
   },
 });
 export const playgroundActions = playgroundSlice.actions;

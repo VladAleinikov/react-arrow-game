@@ -3,5 +3,6 @@ export interface IPlaygroundState {
   steps: IPlaygroundStepsState[]
 }
 export interface IPlaygroundStepsState{
-  currentValue: string
+  currentValue: string | null,
+  enteredValue: string | null
 }

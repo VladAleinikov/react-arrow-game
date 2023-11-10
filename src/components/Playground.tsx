@@ -4,6 +4,7 @@ import { useActions } from "../hooks/actions";
 import Controls from "./Controls";
 import RandomKeys from "./RandomKeys";
 import { INTERVAL_TIME } from "../constants";
+import KeyPressed from "./KeyPressed";
 
 const Playground = () => {
   const { currentStep } = useAppSelector((state) => state.playground);
@@ -35,6 +36,7 @@ const Playground = () => {
         setIsTimerActive={setIsTimerActive}
       />
       <RandomKeys isTimerActive={isTimerActive} />
+      <KeyPressed isTimerActive={isTimerActive} />
     </div>
   );
 };
