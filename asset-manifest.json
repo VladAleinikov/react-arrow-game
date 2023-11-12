@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-arrow-game/static/css/main.435fed40.css",
+    "main.js": "/react-arrow-game/static/js/main.bce87f5b.js",
+    "index.html": "/react-arrow-game/index.html",
+    "main.435fed40.css.map": "/react-arrow-game/static/css/main.435fed40.css.map",
+    "main.bce87f5b.js.map": "/react-arrow-game/static/js/main.bce87f5b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.435fed40.css",
+    "static/js/main.bce87f5b.js"
+  ]
+}
