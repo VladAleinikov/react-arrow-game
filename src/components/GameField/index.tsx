@@ -2,7 +2,6 @@ import React from 'react'
 import RandomKeys from '../RandomKeys';
 import KeyPressed from '../KeyPressed';
 import Score from '../Score';
-import { useAppSelector } from '../../hooks/redux';
 
 interface IGameField{
       isTimerActive: boolean

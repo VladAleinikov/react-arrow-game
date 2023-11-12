@@ -1,11 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppSelector } from "../hooks/redux";
 import { useActions } from "../hooks/actions";
-import Controls from "./Controls";
-import RandomKeys from "./RandomKeys";
 import { END_GAME_CONDITIONS, INTERVAL_TIME } from "../constants";
-import KeyPressed from "./KeyPressed";
-import Score from "./Score";
 import Modal from "./Modal";
 import Description from "./Description";
 import GameField from "./GameField";
@@ -33,7 +29,7 @@ const Playground = () => {
     return () => {
       clearInterval(refreshIntervalId.current as NodeJS.Timeout);
     }
-  }, [isTimerActive]);
+  }, [isTimerActive, setCurrentStep, setSteps, setUnsuccess]);
 
   useEffect(() => {
     const win = totalSuccessful === END_GAME_CONDITIONS.SUCCESS_COUNT;

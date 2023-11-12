@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { MAP_ARROW_CODES } from '../../constants';
-import { useAppSelector } from '../../hooks/redux';
 import { useActions } from '../../hooks/actions';
 import { UseKeyPressedElement } from '../../hooks/keyPressed';
 import SpanInCircle from '../SpanInCircle';
@@ -17,7 +16,7 @@ const KeyPressed = (props: IKeyPressedProps) => {
     if (MAP_ARROW_CODES.hasOwnProperty(e.key) && isTimerActive) {
       setEnteredValue(e.key);
     }
-  }, [isTimerActive])
+  }, [isTimerActive, setEnteredValue])
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown)
   
