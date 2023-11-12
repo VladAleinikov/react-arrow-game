@@ -7,9 +7,11 @@ import { END_GAME_CONDITIONS, INTERVAL_TIME } from "../constants";
 import KeyPressed from "./KeyPressed";
 import Score from "./Score";
 import Modal from "./Modal";
+import Description from "./Description";
+import GameField from "./GameField";
 
 const Playground = () => {
-  const { currentStep, totalSuccessful, totalUnsuccessful } = useAppSelector((state) => state.playground);
+  const { totalSuccessful, totalUnsuccessful } = useAppSelector((state) => state.playground);
   const { setCurrentStep, setSteps, setUnsuccess } = useActions();
   const [isTimerActive, setIsTimerActive] = useState<boolean>(false);
   const refreshIntervalId = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -36,7 +38,7 @@ const Playground = () => {
   useEffect(() => {
     const win = totalSuccessful === END_GAME_CONDITIONS.SUCCESS_COUNT;
     const lose = totalUnsuccessful === END_GAME_CONDITIONS.UNSUCCESS_COUNT;
-    
+
     win && setIsSuccessEndGame(true);
     lose && setIsSuccessEndGame(false);
 
@@ -48,16 +50,12 @@ const Playground = () => {
 
 
   return (
-    <div>
-      <p>{currentStep}</p>
-      <Controls
-        isTimerActive={isTimerActive}
-        setIsTimerActive={setIsTimerActive}
-      />
-      <RandomKeys isTimerActive={isTimerActive} />
-      <KeyPressed isTimerActive={isTimerActive} />
-      <Score />
-      {isShowModal && <Modal isSuccessEndGame={isSuccessEndGame} setIsShowModal={setIsShowModal}/>}
+    <div className="container flex justify-around items-center m-auto min-w-[800px] min-h-[100vh]">
+      <GameField isTimerActive={isTimerActive}/>
+      
+      <Description isTimerActive={isTimerActive} setIsTimerActive={setIsTimerActive} />
+      {isShowModal && <Modal isSuccessEndGame={isSuccessEndGame} setIsShowModal={setIsShowModal} />}
+
     </div>
   );
 };

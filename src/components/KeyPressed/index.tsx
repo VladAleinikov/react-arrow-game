@@ -3,6 +3,7 @@ import { MAP_ARROW_CODES } from '../../constants';
 import { useAppSelector } from '../../hooks/redux';
 import { useActions } from '../../hooks/actions';
 import { UseKeyPressedElement } from '../../hooks/keyPressed';
+import SpanInCircle from '../SpanInCircle';
 
 interface IKeyPressedProps{
       isTimerActive: boolean
@@ -27,8 +28,11 @@ const KeyPressed = (props: IKeyPressedProps) => {
   
   return (
     <div>
-      <h3>KeyPressed</h3>
-      <span>{keyPressedElement}</span>
+      <h2 className='font-bold text-2xl text-sky-700'>Key pressed</h2>
+      <p className='font-medium'>Press the key corresponding to the key in "Random keys"</p>
+      <SpanInCircle color={null}>
+        {keyPressedElement}
+      </SpanInCircle>
     </div>
   )
 }
